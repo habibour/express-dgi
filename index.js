@@ -1,9 +1,12 @@
 
+require('dotenv').config()
+
 const express = require("express");
 const app = express();
 
-app.use(express.json());
 
+const port = process.env.PORT || 3000
+app.use(express.json());
 let teaData = []
 let id = 1
 
@@ -49,5 +52,5 @@ app.put('/teas/:id', (req, res) => {
 
 
 app.listen(3000, function(){
-    console.log("Server started at pot 3000");
+    console.log(`Server started at pot ${port}`)
 })
